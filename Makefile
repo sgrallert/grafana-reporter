@@ -7,18 +7,18 @@ TARGET:=$(GOPATH)/bin/grafana-reporter
 ifeq ($(OS),Windows_NT)
 	TARGET:=$(GOPATH)/bin/grafana-reporter.exe
 endif
-SRC:=$(GOPATH)/src/github.com/sgrallert/reporter
+SRC:=$(GOPATH)/src/github.com/sgrallert/grafana-reporter
 
 .PHONY: buildall
 buildall: build buildlinux
 
 .PHONY: build
 build: 
-	go install -v github.com/sgrallert/reporter/cmd/grafana-reporter
+	go install -v github.com/sgrallert/grafana-reporter/cmd/grafana-reporter
 
 .PHONY: buildlinux 
 buildlinux: 	
-	cmd //v //c "set GOOS=linux&&go install -v github.com/sgrallert/reporter/cmd/grafana-reporter"
+	cmd //v //c "set GOOS=linux&&go install -v github.com/sgrallert/grafana-reporter/cmd/grafana-reporter"
 
 .PHONY: clean
 clean: 	
